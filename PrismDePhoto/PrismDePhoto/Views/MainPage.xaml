@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismDePhoto.Views.MainPage"
+             Title="MainPage">
+
+  <StackLayout Padding="10">
+
+    <StackLayout Orientation="Horizontal">
+      <Button Text="Take a photo" Command="{Binding TakeClickedCommand}"/>
+      <Button Text="Pick a photo" Command="{Binding PickClickedCommand}"/>
+    </StackLayout>
+
+    <Label Text="{Binding FileLocation}"/>
+    <Image Source="{Binding PhotoData}" VerticalOptions="FillAndExpand" Aspect="AspectFit"/>
+  
+  </StackLayout>
+  
+</ContentPage>
