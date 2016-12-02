@@ -39,7 +39,7 @@ namespace PrismDePhoto.ViewModels
             TakeClickedCommand = new DelegateCommand(TakeClicked);
             PickClickedCommand = new DelegateCommand(PickClicked);
 
-            FileLocation = "n/a";
+            FileLocation = "";
             PhotoData = null;
         }
 
@@ -49,7 +49,6 @@ namespace PrismDePhoto.ViewModels
         {
             await CrossMedia.Current.Initialize();
 
-            //throw new NotImplementedException();
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
                 await _pageDialogService.DisplayAlertAsync("No Camera", ":( No camera available.", "OK");
@@ -65,7 +64,6 @@ namespace PrismDePhoto.ViewModels
             if (file == null)
                 return;
 
-            //DisplayAlert("File Location", file.Path, "OK");
             FileLocation = string.Format($"File location: {file.Path}");
 
             PhotoData = ImageSource.FromStream(() =>
@@ -89,6 +87,8 @@ namespace PrismDePhoto.ViewModels
 
             if (file == null)
                 return;
+
+            FileLocation = string.Format($"File location: {file.Path}");
 
             PhotoData = ImageSource.FromStream(() =>
             {

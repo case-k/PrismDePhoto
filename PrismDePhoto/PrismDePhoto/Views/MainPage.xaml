@@ -8,7 +8,7 @@
 
   <StackLayout Padding="10">
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal" Spacing="30">
       <Button Text="Take a photo" Command="{Binding TakeClickedCommand}"/>
       <Button Text="Pick a photo" Command="{Binding PickClickedCommand}"/>
     </StackLayout>
